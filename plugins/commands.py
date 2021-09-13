@@ -4,7 +4,6 @@ from pyrogram import Client, filters
 from pyrogram.types import InlineKeyboardButton, InlineKeyboardMarkup
 from info import START_MSG, CHANNELS, ADMINS, AUTH_CHANNEL, CUSTOM_FILE_CAPTION
 from utils import Media, get_file_details
-from info import TUTORIAL 
 from pyrogram.errors import UserNotParticipant
 logger = logging.getLogger(__name__)
 
@@ -28,14 +27,14 @@ async def start(bot, cmd):
                 ident, file_id = cmd.text.split("_-_-_-_")
                 await bot.send_message(
                     chat_id=cmd.from_user.id,
-                    text="**Please Join My Updates Channel to use this Bot!**",
+                    text="**𝗝𝗼𝗶𝗻 𝗠𝘆 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 \n \n നിങ്ങൾക്ക് Movie വേണമെങ്കിൽ താഴെ കാണുന്ന ചാനലിൽ Join ചെയ്ത ശേഷം Try Again എന്ന ബട്ടൺ അമർത്തുക 😁**",
                     reply_markup=InlineKeyboardMarkup(
                         [
                             [
-                                InlineKeyboardButton("🧩 Join Updates Channel 🧩", url=invite_link.invite_link)
+                                InlineKeyboardButton("🦋 Join Updates Channel 🦋", url=invite_link.invite_link)
                             ],
                             [
-                                InlineKeyboardButton("🔄 Try Again", callback_data=f"checksub#{file_id}")
+                                InlineKeyboardButton(" 🔄 Try Again", callback_data=f"checksub#{file_id}")
                             ]
                         ]
                     ),
@@ -67,10 +66,8 @@ async def start(bot, cmd):
                     f_caption = f"{files.file_name}"
                 buttons = [
                     [
-                        InlineKeyboardButton('🧩 Update Channel 🧩', url='t.me/astormovies')
-                    ],
-                    [
-                        InlineKeyboardButton('🔍 Search again', switch_inline_query_current_chat='')
+                        InlineKeyboardButton('🔎 Search again', url='https://t.me/astor_movies'),
+                        InlineKeyboardButton('Channel', url='https://t.me/astormovies')
                     ]
                     ]
                 await bot.send_cached_media(
@@ -85,7 +82,7 @@ async def start(bot, cmd):
         invite_link = await bot.create_chat_invite_link(int(AUTH_CHANNEL))
         await bot.send_message(
             chat_id=cmd.from_user.id,
-            text="**Please Join My Updates Channel to use this Bot!**",
+            text="**𝗝𝗼𝗶𝗻 𝗠𝘆 𝗨𝗽𝗱𝗮𝘁𝗲𝘀 𝗖𝗵𝗮𝗻𝗻𝗲𝗹 \n \n നിങ്ങൾക്ക് Movie വേണമെങ്കിൽ താഴെ കാണുന്ന ചാനലിൽ Join ചെയ്ത ശേഷം Try Again എന്ന ബട്ടൺ അമർത്തുക 😁**",
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
@@ -102,8 +99,8 @@ async def start(bot, cmd):
             reply_markup=InlineKeyboardMarkup(
                 [
                     [
-                        InlineKeyboardButton("🔍 Search Here", switch_inline_query_current_chat=''),
-                        InlineKeyboardButton("🌸 Group 🌸", url="https://t.me/astor_movies")
+                        InlineKeyboardButton("🔎 Search Here", switch_inline_query_current_chat=''),
+                        InlineKeyboardButton("Modded 🛠", url="https://t.me/solo_minded")
                     ],
                     [
                         InlineKeyboardButton("About", callback_data="about")
@@ -195,8 +192,7 @@ async def delete(bot, message):
 async def bot_info(bot, message):
     buttons = [
         [
-            InlineKeyboardButton('Update Channel', url='https://t.me/Mo_Tech_YT'),
-            InlineKeyboardButton('Video', url=f'{TUTORIAL}')
+            InlineKeyboardButton('🧩 Update Channel 🧩', url='https://t.me/solo_minded'),
         ]
         ]
-    await message.reply(text=f"<b>Developer : <a href='https://t.me/subinps_bot'>SUBIN</a>\nLanguage : <code>Python3</code>\nLibrary : <a href='https://docs.pyrogram.org/'>Pyrogram asyncio</a>\nSource Code : <a href='{TUTORIAL}'>Click here</a>\nUpdate Channel : <a href='https://t.me/Mo_Tech_YT'>Mo Tech YT</a> </b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
+    await message.reply(text="<b>Modded : <a href='https://t.me/solo_minded'>shabeeb solo</a></b>", reply_markup=InlineKeyboardMarkup(buttons), disable_web_page_preview=True)
